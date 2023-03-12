@@ -1,117 +1,157 @@
 	:root {
-	  --bg-color: #010102;
-	  --primary-color: hsl(216, 12%, 8%);
-	  --secondary-color: hsl(25, 97%, 53%);
-	  --num-color: hsl(216, 12%, 54%);
-	  --num-border: hsl(213, 19%, 18%);
-	  --font-color: hsl(217, 12%, 63%);
+		--bg-color: #010102;
+		--primary-color: #212932;
+		--secondary-color: hsl(25, 97%, 53%);
+		--num-color: hsl(216, 12%, 54%);
+		--num-border: hsl(213, 19%, 18%);
+		--font-color: hsl(217, 12%, 63%);
 	}
 
 	body {
-	  background-color: var(--bg-color);
-	  font-family: Arial, Helvetica, sans-serif;
-
+		background-color: var(--bg-color);
+		font-family: Arial, Helvetica, sans-serif;
+		display: flex;
+		justify-content: center;
+		align-content: center;
 	}
 
-	.container {
-	  box-sizing: border-box;
-	  border-radius: 30px;
-	  width: 400px;
-	  height: 400px;
-	  margin: 0 auto;
-	  padding: 30px;
-	  background-color: var(--primary-color);
+	/* general styling */
+
+	.flip-card {
+		box-sizing: border-box;
+		border-radius: 25px;
+		width: 450px;
+		height: 450px;
+		padding: 35px;
+		display: inline-block;
+		background-color: var(--primary-color);
+		perspective: 1000px;
 	}
 
-	.icon-bg {
-	  box-sizing: border-box;
-	  border-radius: 50%;
-	  width: 50px;
-	  height: 50px;
-	  background-color: var(--num-border);
+	.card {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		transition: transform 0.8s;
+		transform-style: preserve-3d;
+		transform-origin: center right;
 	}
 
-	.icon {
-	  margin: 15px 16px;
+	.card.is-flipped {
+		transform: translateX(-100%) rotateY(-180deg);
+	}
+
+	.flip-card-inner {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
 	}
 
 	h1 {
-	  color: white;
+		color: white;
+	}
 
+	p {
+		line-height: 25px;
+		font-size: 18px;
+	}
+
+
+	/* front side */
+
+	.icon-bg {
+		box-sizing: border-box;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		background-color: var(--num-border);
+	}
+
+	.icon-front {
+		margin: 15px 16px;
 	}
 
 	p,
 	.ratings {
-	  color: hsl(217, 12%, 63%);
+		color: hsl(217, 12%, 63%);
 	}
 
-	p {
-	  line-height: 25px;
-	}
 
 	.ratings {
-	  display: flex;
-	  flex-direction: row;
-	  justify-content: space-between;
-	  margin: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 40px;
+		margin-bottom: 20px;
 	}
 
 	.num {
-	  width: 50px;
-	  height: 50px;
-	  background-color: var(--num-border);
-	  border-radius: 50%;
-	  cursor: pointer;
+		background-color: var(--num-border);
+		padding: 25px;
+		border-radius: 50%;
+		font-size: 20px;
+		cursor: pointer;
 	}
+
 
 	.num:hover {
-	  background-color: var(--secondary-color);
-	  color: white;
-	  transition: background-color 1s ease-out;
+		background-color: var(--secondary-color);
+		color: white;
+		transition: background-color 1s ease-out;
 	}
-
 
 	.submit {
-	  background-color: white;
-	  color: var(--secondary-color);
-	  width: 100%;
-	  padding: 10px;
-	  margin-top: 20px;
-	  border: none;
-	  border-radius: 20px;
-	  font-size: 18px;
-	  letter-spacing: 2px;
-	  cursor: pointer;
+		background-color: white;
+		width: 100%;
+		padding: 15px;
+		border: none;
+		border-radius: 25px;
+		font-size: 18px;
+		letter-spacing: 2px;
+		cursor: pointer;
+	}
+
+	.submit a {
+		text-decoration: none;
+		color: var(--secondary-color);
+
 	}
 
 
+	/* back side */
+
+	.flip-card-back {
+		margin-top: 20px;
+		transform: rotateY(180deg);
+		text-align: center;
+	}
+
+	.selection {
+		background-color: var(--num-border);
+		color: var(--secondary-color);
+		box-sizing: border-box;
+		width: 200px;
+		padding: 10px;
+		border-radius: 20px;
+		font-size: 18px;
+		margin: 0 auto;
+		margin-top: 20px;
+
+	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	/* footer */
 
 	.attribution {
-	  font-size: 11px;
-	  text-align: center;
+		padding-top: 50px;
+		font-size: 11px;
+		text-align: center;
+		color: hsl(25, 97%, 53%);
 	}
 
 	.attribution a {
-	  color: hsl(228, 45%, 44%);
+		text-decoration: none;
+		color: hsl(217, 12%, 63%)
 	}
