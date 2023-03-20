@@ -5,6 +5,7 @@
 		--num-color: hsl(216, 12%, 54%);
 		--num-border: hsl(213, 19%, 18%);
 		--font-color: hsl(217, 12%, 63%);
+
 	}
 
 	body {
@@ -87,7 +88,7 @@
 		margin-bottom: 20px;
 	}
 
-	.num {
+	.options {
 		background-color: var(--num-border);
 		padding: 25px;
 		border-radius: 50%;
@@ -96,14 +97,20 @@
 	}
 
 
-	.num:hover {
+	.options:hover {
 		background-color: var(--secondary-color);
 		color: white;
 		transition: background-color 1s ease-out;
 	}
 
+	.pressed {
+		background-color: var(--num-color);
+		color: white;
+	}
+
 	.submit {
-		background-color: white;
+		background-color: var(--secondary-color);
+		color: white;
 		width: 100%;
 		padding: 15px;
 		border: none;
@@ -113,12 +120,11 @@
 		cursor: pointer;
 	}
 
-	.submit a {
-		text-decoration: none;
+	.submit:hover {
+		background-color: white;
 		color: var(--secondary-color);
-
+		transition: background-color .8s ease-out;
 	}
-
 
 	/* back side */
 
@@ -135,7 +141,7 @@
 		width: 200px;
 		padding: 10px;
 		border-radius: 20px;
-		font-size: 18px;
+		font-size: 16px;
 		margin: 0 auto;
 		margin-top: 20px;
 
